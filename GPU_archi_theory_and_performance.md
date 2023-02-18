@@ -109,6 +109,12 @@ AD102：12个GPC，每个GPC有6 TPC，每个TPC有2个SM，合计12\*6\*2=144�
 
 4.  **英伟达GPU性价比-截至2023-1-1**
 
+1、一个CPU内包含多个GPC。NVIDIA通过砍GPC数量形成不同的核心型号。
+2、一个GPC包含多个TPC，那么一个GPU就包含多个TPC了。在同一个核心型号内通过砍TPC数量形成不同的计算卡型号。
+3、一个TPC包含2个SM（Pascal部分核心只包含1个SM），一个SM包含64或128个FP32的CUDA，一个SM包含8个或者4个Tensor Core
+4、为了芯片微观结构的复用性，TPC内部的微观结构，以及SM内部的微观结构，以及比例关系一般不会变动。
+5、显存计算中，GDDR5X的显存的prefetch系数一般是8，极少数为4；最新的GDDR6X的prefetch系数为16；HBM显存的prefetch系数一般为2。不同厂家的显卡有的时候也使用显存频率区分不同价格的显卡。
+
 ![](media/image7.png){width="5.768055555555556in" height="4.345833333333333in"}
 
 | 核心Archit | 型号Model          | 工艺 | GPC  | TPC  | SMs/TPC | SM   | CUDAs/SM | CUDA  | TCs/SM | TC   | RT Cores | Interface显存位宽bit | Data  Rate显存频率Gbps | Bandwidth显存带宽GB/sec | FP32TFLOPS | TDP-Watt | 型号Model          | 价格23/01 | 算力/价格   | 性价比排名 |
